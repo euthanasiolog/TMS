@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -18,13 +17,26 @@ public class SortRandomMassive
 
         for (int i = 0; i < n; i++)
         {
-            array [i] = random.nextInt(n - 1)  + 1;
+            array [i] = random.nextInt(n) + 1;
         }
         for (int i = 0; i < n; i++)
         {
             System.out.print(array [i] + " ");
         }
-        Arrays.sort(array);
+       // Arrays.sort(array);
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n - 1; j++)
+            {
+                if (array[j] > array[j + 1] )
+                {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+        System.out.println();
         System.out.println("Sort: ");
         for (int i = 0; i < n; i++)
         {
